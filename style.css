@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
-    background-color: #222;
+    background-color: #222222
 }
 
 .container {
@@ -40,9 +40,11 @@ img {
 
 /* Header styles */
 .header {
-    background-color: #111;
+    position: sticky;
+    top: 0;
+    background-color: #222226;
     padding: 10px 0;
-}
+  }
 
 .logo {
     font-size: 2em;
@@ -117,15 +119,22 @@ img {
 }
 
 /* About section styles */
+.about{
+    padding: 50px;
+}
 .about img {
     display: block;
     margin: 0 auto 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 /* Projects section styles */
 .projects {
     padding-bottom: 50px;
+}
+.projects h2{
+    text-align: center;
+    padding: 25px;
 }
 
 .project-grid {
@@ -140,21 +149,12 @@ img {
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
+    border-radius: 10px; /*Rounded corners for cards*/
 }
-
+  
 .project-card:hover {
-    transform: scale(1.05);
-}
-
-.project-card img {
-    border-radius: 5px 5px 0 0;
-}
-
-.project-card h3 {
-    padding: 15px 0;
-    background-color: #333;
-    color: #fff;
-    margin: 0;
+    transform: scale(1.03); /* Slight scale-up on hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 .project-card a {
@@ -168,11 +168,92 @@ img {
 .project-card a:hover {
     background-color: #ccc;
 }
+  
+
+.project-card img {
+    height: 45px;
+    border-radius: 5px;
+}
+
+.project-card h3 {
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+}
 
 /* Contact section styles */
-.contact {
-    /* Add your styles here */
+.contact h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
+
+.contact p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #444;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.social-links img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 20%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+}
+
 
 /* Media queries for responsiveness
 /* Media queries for responsiveness */
