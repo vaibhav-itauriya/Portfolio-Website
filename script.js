@@ -10,7 +10,8 @@ menuToggle.addEventListener('click', () => {
 const typingTexts = [
   'a web developer',
   'a passionate designer',
-  'building creative solutions'
+  'building creative solutions',
+  'a machine learning enthusiast'
 ];
 let currentTextIndex = 0;
 const typingTextElement = document.querySelector('.typing-text');
