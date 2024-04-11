@@ -149,12 +149,12 @@ img {
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
-    border-radius: 10px; /*Rounded corners for cards*/
+    border-radius: 10px;
 }
   
 .project-card:hover {
-    transform: scale(1.03); /* Slight scale-up on hover */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+    transform: scale(1.03);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .project-card a {
@@ -244,7 +244,7 @@ img {
 }
 
 .social-links img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px;
     height: 40px;
     border-radius: 20%;
     transition: transform 0.3s ease-in-out;
@@ -255,7 +255,6 @@ img {
 }
 
 
-/* Media queries for responsiveness
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     .navigation {
