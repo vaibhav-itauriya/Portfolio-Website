@@ -6,7 +6,7 @@ menuToggle.addEventListener('click', () => {
   navigation.classList.toggle('active');
 });
 
-// Hero section typing animation (replace with your desired text)
+
 const typingTexts = [
   'a web developer',
   'a passionate designer',
@@ -24,7 +24,7 @@ function typeText() {
     setTimeout(() => {
       typedText += currentText[i];
       typingTextElement.textContent = typedText;
-    }, i * 50); // Adjust speed here (ms)
+    }, i * 50); 
   }
 
   currentTextIndex++;
@@ -32,7 +32,7 @@ function typeText() {
     currentTextIndex = 0;
   }
 
-  setTimeout(typeText, 3000); // Adjust delay between animation loops (ms)
+  setTimeout(typeText, 3000);
 }
 
 typeText();
