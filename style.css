@@ -264,6 +264,15 @@ img {
     .menu-toggle {
         display: block;
     }
+    .project-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .project-card{
+        width: 75%;
+        align-self: center;
+        margin: 25px 0px;
+    }
 }
 
 /* Animations */
