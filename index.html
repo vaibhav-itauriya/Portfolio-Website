@@ -1,13 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaibhav Itauriya | Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Vaibhav Itauriya</a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <span class="bar">.</span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="hero.jpg" alt="Hero Image" class="hero-image">
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-title">Hi, I'm <span class="typing-text"></span></h1>
+                    <p class="hero-subtitle">A passionate <span class="typing-text">student</span> with a focus on <span class="typing-text">machine learning and solving problems.</span></p>
+                    <a href="#contact" class="hero-button">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to Vaibhav Itauriya's realm of innovation! As a first year undergraduate in mechanical engineering at IIT Kanpur, Vaibhav is driven by a dual passion: mastering the intricacies of Machine Learning and Natural Language Processing, while also exploring avenues where his technical expertise intersects with market needs. With a keen eye for identifying opportunities and a knack for turning ideas into reality, Vaibhav is on a mission to create impactful solutions that resonate with users. Join him on this exciting journey of discovery and innovation, where he's not just shaping the future, but making it more tangible and accessible for all.
+                </p>
+                <img src="program-6944163_1280.jpg" alt="About Me Image">
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="Screenshot 2024-04-08 121613.png" alt="Project 1">
+                        <h3>GDSC Web Development Project</h3>
+                        <p>
+                            The culmination of this project yielded a captivating personal website, hosted on Google Firebase, that seamlessly integrated HTML, CSS, JavaScript, React.JS, and Google Firebase. Through meticulous design and development, I crafted a dynamic platform that showcased my skills, passions, and achievements succinctly. Navigating the site was effortless, thanks to its sleek design and intuitive interface. Interactive elements, powered by JavaScript, enhanced user engagement, while React.JS optimized performance and scalability with its component-based architecture. The website served as a comprehensive digital portfolio, encapsulating my dedication to excellence in web development. Its vibrant aesthetic and seamless functionality provided visitors with an immersive experience, leaving a lasting impression of my proficiency and creativity in the ever-evolving realm of web development.</p>
+                        <a href="https://github.com/vaibhav-itauriya/GDSC-Web-Dev-Basics-and-Application-project">View Details</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="finance_and_analytics_club_cover.jpeg" alt="Project 2">
+                        <h3>FAC Investment Banking Project</h3>
+                        <p>Through this project, I embarked on a deep dive into the intricate workings of investment banking, gaining invaluable insights into the roles of investment bankers and the functioning of investment banking firms. Delving into the nuances of company valuation, asset management, and investment strategies, I honed my analytical skills and financial acumen. A pivotal aspect of the project was a comprehensive case study on aquisition of WhatsApp by FaceBook (presently Meta), meticulously examining their financial reports and balance sheets to understand the underlying factors contributing to this acquisiton. This hands-on experience provided me with practical knowledge and a nuanced understanding of real-world financial challenges. It was a journey of discovery and learning, equipping me with the expertise needed to navigate the complexities of the finance industry with confidence and precision.</p>
+                        <a href="mna_team2.pptx">View Details</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p>Get in touch if you have any questions or exciting opportunities! You can also find me on social media using the links below.</p>
+                <form action="mailto:vaibhavitauriya@gmail.com" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+                <ul class="social-links">
+                    <li><a href="https://github.com/vaibhav-itauriya"><i class="fab fa-github"><img src="githublogo.jpg" alt="githublogo"></i></a></li>
+                    <li><a href="https://in.linkedin.com/in/vaibhav-itauriya/"><i class="fab fa-linkedin"><img src="linkedinlogo.jpg" alt="linkedinlogo"></i></a></li>
+                    <li><a href="https://www.instagram.com/vaibhav_itauriya/"><i class="fab fa-twitter"><img src="instagramlogo.jpg" alt="instagramlogo"></i></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
