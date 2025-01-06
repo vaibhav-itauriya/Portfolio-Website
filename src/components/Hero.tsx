@@ -35,7 +35,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl transform rotate-6 opacity-75"></div>
               <div className="absolute inset-0 bg-dark rounded-2xl transform -rotate-6"></div>
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                src="../old protfolio/hero.jpg"
                 alt="Vaibhav Itauriya"
                 className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
               />
