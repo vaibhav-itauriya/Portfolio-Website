@@ -1,0 +1,33 @@
+@import 'animations.css';
+
+@layer base {
+  body {
+    @apply bg-dark-darker text-gray-100;
+  }
+}
+
+@layer components {
+  .gradient-border {
+    @apply relative;
+    &::before {
+      content: '';
+      @apply absolute inset-0 rounded-lg p-[1px];
+      background: linear-gradient(45deg, theme('colors.primary.DEFAULT'), theme('colors.secondary.DEFAULT'));
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-dark-lighter/30;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
