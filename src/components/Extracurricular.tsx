@@ -4,7 +4,7 @@ import { Trophy } from 'lucide-react';
 const activities = [
   {
     title: "National Cadet Corps (NCC)",
-    role: "Cadet – Technical Regiment",
+    role: "Cadet - Technical Regiment",
     organization: "2 UP CTR, NCC IIT Kanpur",
     description: "Participated in various training camps and community service activities."
   },
