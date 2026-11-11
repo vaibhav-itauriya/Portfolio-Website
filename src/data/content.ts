@@ -1087,3 +1087,63 @@ export const contact = {
   linkedin: 'https://in.linkedin.com/in/vaibhav-itauriya/',
   instagram: 'https://www.instagram.com/vaibhav_itauriya/',
 };
+
+export const projectAnchor = (title: string) => `project-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
+
+export interface ProofRow {
+  skill: string;
+  proof: string;
+  links: { label: string; href: string }[];
+}
+
+const p = (title: string) => ({ label: title, href: `#${projectAnchor(title)}` });
+
+// A role-specific "skills, with proof" table. Only roles listed here get the section.
+export const roleProof: Partial<Record<Track, { title: string; intro: string; rows: ProofRow[] }>> = {
+  frontend: {
+    title: 'Frontend skills, with proof',
+    intro: 'Each skill links to the work that shows it.',
+    rows: [
+      {
+        skill: 'HTML, CSS and JavaScript',
+        proof: 'Built the rattleback simulator, SabhaSaar and the Bharat Trial Network prototype in plain HTML, CSS and JavaScript, with no framework',
+        links: [p('Rattleback Dynamics'), p('SabhaSaar'), p('Bharat Trial Network')],
+      },
+      {
+        skill: 'React and components',
+        proof: 'Built the SARVAM dashboard at JLR in Next.js and TypeScript, FINN in Next.js 15 and React 19, and LoreDrop in React and TypeScript',
+        links: [{ label: 'JLR', href: '#experience' }, p('FINN'), p('LoreDrop')],
+      },
+      {
+        skill: 'Responsive, mobile-first UI',
+        proof: 'FINN is designed for a phone first and installs to the home screen. This site works from a 390px phone up to a wide screen',
+        links: [p('FINN'), p('This Portfolio')],
+      },
+      {
+        skill: 'Working with designers',
+        proof: 'Designed flows in Figma before building them at PFA India, and iterated 5+ Figma workflows over 30+ user tests for the DoRD Project Portal',
+        links: [{ label: 'PFA India', href: '#experience' }, p('DoRD Project Portal')],
+      },
+      {
+        skill: 'Node.js and APIs',
+        proof: 'Built the Express and MongoDB API for LoreDrop, 8 REST API routes on AWS Lambda at JLR, and Next.js API routes for FINN',
+        links: [p('LoreDrop'), { label: 'JLR', href: '#experience' }, p('FINN')],
+      },
+      {
+        skill: 'Performance',
+        proof: 'Cut page load from 20 sec to 2 sec and cached API latency from 3 sec to 2 ms at JLR. This site scores 90+ for performance and 100 for accessibility on Lighthouse',
+        links: [{ label: 'JLR', href: '#experience' }, p('This Portfolio')],
+      },
+      {
+        skill: 'Code quality and teamwork',
+        proof: 'Worked in a 9-member team over Git and GitHub on LoreDrop, wrote TypeScript across JLR, FINN and LoreDrop, and ran 18 end-to-end test rounds on Pacto',
+        links: [p('LoreDrop'), p('Pacto')],
+      },
+      {
+        skill: 'UI internships',
+        proof: 'Software Intern at Jaguar Land Rover, SDE Intern at Turantlo building a Next.js and React website, and React frontends at PFA India',
+        links: [{ label: 'Experience', href: '#experience' }],
+      },
+    ],
+  },
+};

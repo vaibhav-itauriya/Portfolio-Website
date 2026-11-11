@@ -1,8 +1,8 @@
 import { Download, Github, GraduationCap, Briefcase, Linkedin, Mail, MapPin } from 'lucide-react';
-import LensSwitch from './LensSwitch';
+import { order } from './ViewMenu';
 import { Emphasize } from './Section';
 import { useLens } from '../lens';
-import { contact } from '../data/content';
+import { contact, lenses } from '../data/content';
 
 const facts = [
   { Icon: GraduationCap, text: 'B.Tech, IIT Kanpur, 2023 – 2027' },
@@ -11,7 +11,7 @@ const facts = [
 ];
 
 export default function Hero() {
-  const { lens, info } = useLens();
+  const { lens, info, setLens } = useLens();
 
   return (
     <section id="top" className="mx-auto max-w-page px-5 pb-16 pt-8 md:px-8 md:pb-20 md:pt-14">
@@ -47,15 +47,31 @@ export default function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 rounded-2xl border border-rule bg-surface p-4 md:p-5">
-            <p id="hiring-for" className="mb-3 font-medium">
-              What role are you hiring for?
-            </p>
-            <LensSwitch />
-            <p className="mt-3 text-sm text-muted">
-              The page updates to show the experience and projects that matter for that role.
-            </p>
-          </div>
+          <p className="mt-5 text-[0.95rem] text-muted">
+            {lens === 'all' ? (
+              <>
+                Hiring for one role? See this page as{' '}
+                {order
+                  .filter((id) => id !== 'all')
+                  .map((id, i, arr) => (
+                    <span key={id}>
+                      <button type="button" onClick={() => setLens(id)} className="link font-medium text-ink">
+                        {lenses.find((l) => l.id === id)!.label}
+                      </button>
+                      {i < arr.length - 2 ? ', ' : i === arr.length - 2 ? ' or ' : ''}
+                    </span>
+                  ))}
+                .
+              </>
+            ) : (
+              <>
+                Showing my {info.label.toLowerCase()} work.{' '}
+                <button type="button" onClick={() => setLens('all')} className="link font-medium text-ink">
+                  See everything instead
+                </button>
+              </>
+            )}
+          </p>
 
           <div key={lens} className="lens-fade mt-8">
             <p className="max-w-[40rem] text-xl leading-relaxed text-ink">

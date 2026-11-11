@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import RoleProof from './components/RoleProof';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import CaseDecks from './components/CaseDecks';
@@ -20,6 +21,7 @@ export default function App() {
       <Header />
       <main id="main">
         <Hero />
+        <RoleProof />
         <Experience />
         <Projects />
         <CaseDecks />

@@ -1,5 +1,5 @@
 import { ChevronDown, Award, ExternalLink, Github } from 'lucide-react';
-import { projects } from '../data/content';
+import { projectAnchor, projects } from '../data/content';
 import type { Project } from '../data/content';
 import { pickView, useLens } from '../lens';
 import { CollapsibleBlocks, Section, Tags } from './Section';
@@ -41,7 +41,7 @@ export default function Projects() {
       <div key={lens} className="lens-fade">
         <ul className="grid gap-6 md:grid-cols-2">
           {featured.map((p) => (
-            <li key={p.title} className={p.image ? '' : 'md:col-span-1'}>
+            <li key={p.title} id={projectAnchor(p.title)}>
               <ProjectCard project={p} />
             </li>
           ))}
@@ -52,7 +52,7 @@ export default function Projects() {
             <h3 className="font-display text-xl font-semibold">More projects</h3>
             <ul className="mt-4 divide-y divide-rule border-y border-rule">
               {rest.map((p) => (
-                <li key={p.title}>
+                <li key={p.title} id={projectAnchor(p.title)}>
                   <details className="group py-4">
                     <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
                       <span>
