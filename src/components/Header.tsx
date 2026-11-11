@@ -5,6 +5,7 @@ import LensSwitch, { LensSelect } from './LensSwitch';
 const links = [
   { href: '#experience', text: 'Experience' },
   { href: '#projects', text: 'Projects' },
+  { href: '#decks', text: 'Case decks' },
   { href: '#achievements', text: 'Achievements' },
   { href: '#leadership', text: 'Leadership' },
   { href: '#background', text: 'Background' },

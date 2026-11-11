@@ -374,6 +374,34 @@ export const projects: Project[] = [
       ],
     },
     tags: ['GPT-4o-mini', 'MCP', 'Pine Labs', 'Gnani', 'Telegram', 'PRD'],
+    links: [
+      { href: 'https://github.com/parafoxxx/Pacto', label: 'Code' },
+      { href: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7', label: 'Project files' },
+    ],
+  },
+  {
+    title: 'FINN',
+    kind: 'Investment agent for portfolio managers',
+    context: 'Build challenge for ENAM Holdings',
+    dates: 'Nov’26',
+    lenses: ['software', 'product', 'data'],
+    views: {
+      all: [
+        {
+          items: [
+            'A mobile-first agent for a portfolio manager with ninety seconds between meetings. It reads every BSE filing and the daily price and volume for 18 holdings, and ranks them into an inbox you can finish',
+            'Reads results PDFs into Revenue, EBITDA, PBT and PAT against last quarter and last year, and explains a CEO change in one card',
+            'Research view checks what management promised on its last four earnings calls against what the company later reported, with every quote string-matched to the source PDF',
+            'Voice copilot and a Telegram bot answer questions and push alerts at thresholds the user sets, with a preview of how noisy each setting would have been over 30 days',
+          ],
+        },
+      ],
+    },
+    tags: ['LLM Agents', 'Voice', 'Telegram Bot', 'Redis', 'GitHub Actions', 'PWA'],
+    links: [
+      { href: 'https://finn-opal-delta.vercel.app', label: 'Live app' },
+      { href: 'https://github.com/vaibhav-itauriya/finn', label: 'Code' },
+    ],
   },
   {
     title: 'Amazon ML Challenge 2026',
@@ -397,6 +425,55 @@ export const projects: Project[] = [
       ],
     },
     tags: ['Python', 'LightGBM', 'Hugging Face', 'TF-IDF', 'NLP'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/Amazon-ML-Challenge-2026', label: 'Code' }],
+  },
+  {
+    title: 'SabhaSaar',
+    kind: 'Meeting minutes in any Indian language',
+    context: 'Sarvam AI hackathon',
+    dates: 'Oct’26',
+    lenses: ['software', 'product'],
+    views: {
+      all: [
+        {
+          items: [
+            'Turns Gram Sabha, Panchayat, Parliament and court proceedings into minutes where every point is stamped with the moment it was said',
+            'Built on Sarvam AI, with Saaras v4 for speech to text with speaker separation, Sarvam-105B for minutes and answers, and Bulbul for spoken summaries',
+            'Four ways to add a meeting, from sharing a Meet or Zoom tab to recording the room, a stream link or an upload, with live captions every 25 seconds',
+            'People who missed the meeting can hear a one-minute summary in their own language or ask questions by voice',
+          ],
+        },
+      ],
+    },
+    tags: ['FastAPI', 'Sarvam AI', 'Speech AI', 'Indic Languages'],
+    links: [
+      { href: 'https://sarvam-sabhasaar.onrender.com', label: 'Live demo' },
+      { href: 'https://github.com/vaibhav-itauriya/sarvam-sabhasaar', label: 'Code' },
+    ],
+  },
+  {
+    title: 'Bharat Trial Network',
+    kind: 'Paid product trials for Bharat households',
+    context: 'Meesho DICE Challenge Season 3, Business Track. Team Moshi Moshi',
+    dates: 'Oct’26',
+    lenses: ['strategy', 'product'],
+    views: {
+      all: [
+        {
+          items: [
+            'Brands pay Meesho to put a free sample in a chosen household’s parcel, hear back from her within days and see whether she bought it 90 days later',
+            'Sized it against ₹5,400 Cr of yearly brand sampling spend in India, at ₹9 to ₹16 per delivered trial versus ₹25 to ₹40 per promoter contact',
+            'Designed the flow from checkout flagging to Valmo hub insertion, a 3-question survey for ₹15 off and a 90-day purchase lift against a matched holdout',
+            'Built a working app prototype and projected about 1% of Meesho’s NMV, around ₹650 Cr run-rate by end of FY28, with zero commission',
+          ],
+        },
+      ],
+    },
+    tags: ['Monetization', 'Market Sizing', 'GTM', 'Prototype'],
+    links: [
+      { href: 'https://vaibhav-itauriya.github.io/moshi-moshi-meesho-dice-3.0/', label: 'Live prototype' },
+      { href: 'https://github.com/vaibhav-itauriya/moshi-moshi-meesho-dice-3.0', label: 'Code' },
+    ],
   },
   {
     title: 'Campus Beats 2026',
@@ -441,6 +518,10 @@ export const projects: Project[] = [
       ],
     },
     tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Firebase'],
+    links: [
+      { href: 'https://github.com/parafoxxx/Loredrop', label: 'Code' },
+      { href: 'https://drive.google.com/drive/folders/1mLWXR7MXlehWiwf1G0hj-TUxZl1VWUfK', label: 'Project files' },
+    ],
   },
   {
     title: 'Inter IIT Tech Meet 13.0',
@@ -463,6 +544,7 @@ export const projects: Project[] = [
       ],
     },
     tags: ['Forecasting', 'Cost-Benefit', 'Geospatial', 'Roadmap'],
+    links: [{ href: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg', label: 'Report and deck' }],
   },
   {
     title: 'Crickcast',
@@ -483,6 +565,7 @@ export const projects: Project[] = [
       ],
     },
     tags: ['XGBoost', 'LightGBM', 'Feature Engineering'],
+    links: [{ href: 'https://github.com/Akshatgarg221/Crickcast', label: 'Code' }],
   },
   {
     title: 'LLuminating Language',
@@ -505,6 +588,28 @@ export const projects: Project[] = [
     },
     tags: ['LLaMA3', 'LangChain', 'ChromaDB', 'RAG'],
     links: [{ href: 'https://github.com/udbhav-44/BCS-Lluminating-Language', label: 'Code' }],
+  },
+  {
+    title: 'Narrative-Core',
+    kind: 'AI story generation for audio series',
+    context: 'Project K by KUKU FM, built with a team',
+    dates: 'Apr’25',
+    badge: 'National Finalist, top 10 teams',
+    lenses: ['software', 'data'],
+    views: {
+      all: [
+        {
+          items: [
+            'An AI pipeline that turns a concept note into coherent, culturally rooted multi-episode scripts',
+            'Each character keeps a memory in ChromaDB, retrieved by relevance, recency and importance, so behaviour and dialogue stay consistent across episodes',
+            'Uses RAG over a store of Indian story frameworks for cultural context, and ranks context to fit the LLM’s token limit at every step',
+            'LLM-based quality checks review each generated episode',
+          ],
+        },
+      ],
+    },
+    tags: ['LLM', 'RAG', 'ChromaDB', 'NLP'],
+    links: [{ href: 'https://github.com/Krishnaag23/narrative-core', label: 'Code' }],
   },
   {
     title: 'DoRD Project Portal',
@@ -564,26 +669,76 @@ export const projects: Project[] = [
     },
     tags: ['Next.js', 'TypeScript'],
     links: [
-      { href: 'https://www.anciitk.in/', label: 'Live site' },
+      { href: 'https://anc-website-blond.vercel.app/', label: 'Live site' },
       { href: 'https://github.com/AnC-Council-IIT-Kanpur/Website', label: 'Code' },
     ],
   },
   {
     title: 'Rattleback Dynamics',
     kind: 'Undergraduate research project',
-    context: 'Under Prof. Dipayan Mukherjee, Mechanical Engineering, IIT Kanpur',
-    lenses: [],
+    context: 'With Prof. Dipayan Mukherjee, Mechanical Engineering, IIT Kanpur',
+    dates: '2026',
+    lenses: ['software', 'data'],
     views: {
       all: [
         {
           items: [
-            'Extending a rolling rattleback model to include contact friction',
-            'Simulating the dynamics in MATLAB and writing the work up as a paper',
+            'Extended a rolling rattleback model to slipping contact friction using the Moffatt–Shimomura contact laws, written up as a paper with Prof. Mukherjee',
+            'Built an interactive 3D simulator that runs the same equations in the browser, with rolling, Coulomb and viscous contact, live checks and nine ready-made cases from the paper',
+            'Added one-parameter sweeps, overlaid run history and CSV, PNG and JSON export, plus a link that reopens the exact setup',
           ],
         },
       ],
     },
-    tags: ['MATLAB', 'Dynamics', 'LaTeX'],
+    tags: ['MATLAB', 'JavaScript', 'Dynamics', 'LaTeX'],
+    links: [
+      { href: 'https://vaibhav-itauriya.github.io/ugp-rattleback/', label: 'Simulator' },
+      { href: 'https://github.com/vaibhav-itauriya/ugp-rattleback/blob/main/paper/Itauriya_Mukherjee_rattleback.pdf', label: 'Paper' },
+      { href: 'https://github.com/vaibhav-itauriya/ugp-rattleback', label: 'Code' },
+    ],
+  },
+  {
+    title: 'Satellite-Map CycleGAN',
+    kind: 'Satellite image to map translation',
+    context: 'EE655 Computer Vision and Deep Learning, Prof. Koteswar Jerripothula',
+    dates: 'Apr’25',
+    lenses: ['data'],
+    views: {
+      all: [{ items: ['Trained a CycleGAN in PyTorch that translates satellite images into maps and back, written up as a short research paper'] }],
+    },
+    tags: ['PyTorch', 'CycleGAN', 'Computer Vision'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/EE655-CV-DL', label: 'Code' }],
+  },
+  {
+    title: 'SARCathon 2024',
+    kind: 'FAQ search engine',
+    context: 'AI hackathon by SARC, IIT Bombay. Team Chanakya',
+    dates: 'Oct’24',
+    lenses: ['software'],
+    views: {
+      all: [
+        {
+          items: [
+            'Flask app with fuzzy matching and semantic search using Sentence Transformers and FAISS, plus live suggestions, search history and answer feedback',
+          ],
+        },
+      ],
+    },
+    tags: ['Flask', 'FAISS', 'Sentence Transformers'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/SARCathon-2024---AI-Hackathon', label: 'Code' }],
+  },
+  {
+    title: 'Course Portal',
+    kind: 'Course management app',
+    context: 'Personal project',
+    dates: 'Jan’25',
+    lenses: ['software'],
+    views: { all: [{ items: ['Sign up, log in and manage courses, built with React, TypeScript and Supabase'] }] },
+    tags: ['React', 'Supabase'],
+    links: [
+      { href: 'https://course-portal-jet.vercel.app', label: 'Live site' },
+      { href: 'https://github.com/vaibhav-itauriya/course-portal', label: 'Code' },
+    ],
   },
   {
     title: 'Vidya Vaani',
@@ -602,17 +757,36 @@ export const projects: Project[] = [
     tags: ['ASR', 'NLP', 'Mobile'],
   },
   {
-    title: 'Deeploy CV',
-    kind: 'Computer vision basics',
-    context: 'Self-learning project',
+    title: 'DeeployCV',
+    kind: 'Deepfake detection',
+    context: 'Google Developer Group, IIT Kanpur',
+    dates: 'Jan’25',
     lenses: ['data'],
     views: {
-      all: [{ items: ['Worked with OpenCV, Pillow and pre-trained deep learning models'] }],
+      all: [
+        {
+          items: [
+            'Upload a photo and the model tells you if it is real or a deepfake, built with Keras and Streamlit',
+            'Assignments along the way covered OpenCV, Pillow and pre-trained deep learning models',
+          ],
+        },
+      ],
     },
-    tags: ['OpenCV', 'Python'],
+    tags: ['Keras', 'Streamlit', 'OpenCV'],
     links: [
-      { href: 'https://github.com/vaibhav-itauriya/231115_Vaibhav_Itauriya_DeeployCV', label: 'Code' },
+      { href: 'https://github.com/vaibhav-itauriya/DeeployCV', label: 'Code' },
+      { href: 'https://github.com/vaibhav-itauriya/231115_Vaibhav_Itauriya_DeeployCV', label: 'Assignments' },
     ],
+  },
+  {
+    title: 'IR Wing Website',
+    kind: 'Website',
+    context: 'International Relations Wing, IIT Kanpur',
+    dates: 'May’24',
+    lenses: ['software'],
+    views: { all: [{ items: ['Website for the International Relations Wing of IIT Kanpur, in HTML and CSS'] }] },
+    tags: ['HTML', 'CSS'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/IR-Wing-Repo', label: 'Code' }],
   },
 ];
 
@@ -621,6 +795,7 @@ export interface Achievement {
   event: string;
   detail: string;
   lenses: Track[];
+  deck?: string;
 }
 
 export const achievements: { group: string; items: Achievement[] }[] = [
@@ -629,13 +804,13 @@ export const achievements: { group: string; items: Achievement[] }[] = [
     items: [
       { result: '1st Place', event: 'JLR Global Hackathon', detail: 'Represented India across 7+ countries', lenses: ['software', 'product'] },
       { result: 'Top 10', event: 'Campus Beats 2026, ZS Associates (Market Entry and GTM)', detail: 'Secured a Pre-Placement Interview', lenses: ['strategy', 'product'] },
-      { result: 'National Finalist', event: 'The Ken × Zerodha Case Competition 2026 (Agentic AI)', detail: 'Top 7% of 6,000+ teams', lenses: ['product', 'software'] },
+      { result: 'National Finalist', event: 'The Ken × Zerodha Case Competition 2026 (Agentic AI)', detail: 'Top 7% of 6,000+ teams', lenses: ['product', 'software'], deck: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7' },
       { result: '2nd Rank', event: 'Bizzaro, IITB SARC × Piramal (Product Pitch)', detail: '2nd of 300+ teams', lenses: ['product', 'strategy'] },
-      { result: '5th Rank', event: 'ConsultQuest, IITB × Piramal (Education Reform Case)', detail: '5th of 300+ teams', lenses: ['strategy'] },
-      { result: '5th Rank', event: 'Inter IIT Tech Meet 13.0, Insolation Energy (Consulting Case)', detail: '5th across 23 IITs', lenses: ['strategy', 'data'] },
-      { result: 'National Finalist', event: 'ProdMad 4.0, IIM Shillong (Product Management Case)', detail: 'Top 10 of 2,000+ participants', lenses: ['product'] },
-      { result: 'Semi-Finalist', event: 'Bruce Henderson Ideathon 2025, BCG (HealthTech GTM)', detail: 'Top 10% of 700+ applicants', lenses: ['strategy'] },
-      { result: '3rd Place', event: 'The Product League', detail: 'Product case competition', lenses: ['product'] },
+      { result: '5th Rank', event: 'ConsultQuest, IITB × Piramal (Education Reform Case)', detail: '5th of 300+ teams', lenses: ['strategy'], deck: 'https://drive.google.com/file/d/1fpC2OGzPoEarcZwNV92bJMdw3KQqC9Y7/view' },
+      { result: '5th Rank', event: 'Inter IIT Tech Meet 13.0, Insolation Energy (Consulting Case)', detail: '5th across 23 IITs', lenses: ['strategy', 'data'], deck: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg' },
+      { result: 'National Finalist', event: 'ProdMad 4.0, IIM Shillong (Product Management Case)', detail: 'Top 10 of 2,000+ participants', lenses: ['product'], deck: 'https://drive.google.com/file/d/1Ixv-eW6tBl4zTDOl60cLJ5Sr3T5d6ZgH/view' },
+      { result: 'Semi-Finalist', event: 'Bruce Henderson Ideathon 2025, BCG (HealthTech GTM)', detail: 'Top 10% of 700+ applicants', lenses: ['strategy'], deck: 'https://drive.google.com/file/d/1YVOi0IinbkE6q9X999mv81Eu96AoXmaE/view' },
+      { result: '2nd Rank', event: 'The Product League (Growing Mutual Funds on Dhan)', detail: 'Team The Pirates', lenses: ['product'], deck: 'https://drive.google.com/file/d/1bbcV02DqCcXov0IR2-dymh7_JkPZWx9T/view' },
     ],
   },
   {
@@ -671,6 +846,7 @@ export interface Role {
   path?: string;
   note?: string;
   items: string[];
+  links?: { href: string; label: string }[];
 }
 
 export const leadership: Role[] = [
@@ -698,7 +874,9 @@ export const leadership: Role[] = [
       'Organised 8+ PM sessions with 1000+ attendees alongside BITS, IIT Jodhpur and IIM Shillong',
       'Ran student product events including Product Talks and Prod-A-Thon',
       'Organised Nexus with TPF, YHills and Domnom, engaging 200+ competing teams with a ₹3L+ prize pool',
+      'Put together Casebook 2025, a collection of product interview transcripts, decks and cases for students',
     ],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/Casebook-2025-Product-Club', label: 'Casebook 2025' }],
   },
   {
     org: 'Academic & Career Council, IIT Kanpur',
@@ -721,6 +899,28 @@ export const leadership: Role[] = [
     dates: '',
     items: ['Took part in training camps and community service activities'],
   },
+];
+
+export const portfolioFolder = 'https://drive.google.com/drive/folders/1Nm4Gr_9JRRmAuKND883s7ujTM4azgLKO';
+
+export interface Deck {
+  title: string;
+  brief: string;
+  result?: string;
+  href: string;
+  lenses: Track[];
+}
+
+export const decks: Deck[] = [
+  { title: 'Pacto', brief: 'The Ken × Zerodha 2026, Agentic AI Build Track. Money-backed accountability agent', result: 'National Finalist', href: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7', lenses: ['product', 'software'] },
+  { title: 'LoreDrop', brief: 'CS253 project. Campus event platform for all 47 student clubs at IIT Kanpur', href: 'https://drive.google.com/drive/folders/1mLWXR7MXlehWiwf1G0hj-TUxZl1VWUfK', lenses: ['product', 'software'] },
+  { title: 'Solar Waste in India', brief: 'Inter IIT Tech Meet 13.0, Insolation Energy. Forecast to 2040 and a national recycling plan, report and deck', result: '5th of 23 IITs', href: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg', lenses: ['strategy', 'data'] },
+  { title: 'Growing Mutual Funds on Dhan', brief: 'The Product League. Strategy to reach 1 million+ mutual fund users in 12 months', result: '2nd Rank', href: 'https://drive.google.com/file/d/1bbcV02DqCcXov0IR2-dymh7_JkPZWx9T/view', lenses: ['product', 'strategy'] },
+  { title: 'BioMorph', brief: 'ProdMad 4.0, IIM Shillong. App for bio-printed organ transplants, with personas, Figma flows and phased GTM', result: 'National Finalist', href: 'https://drive.google.com/file/d/1Ixv-eW6tBl4zTDOl60cLJ5Sr3T5d6ZgH/view', lenses: ['product'] },
+  { title: 'ConsultQuest', brief: 'IITB × Piramal. Education reform case, Team Chanakya', result: '5th of 300+ teams', href: 'https://drive.google.com/file/d/1fpC2OGzPoEarcZwNV92bJMdw3KQqC9Y7/view', lenses: ['strategy'] },
+  { title: 'Bruce Henderson Ideathon', brief: 'BCG 2025. HealthTech GTM', result: 'Top 10%', href: 'https://drive.google.com/file/d/1YVOi0IinbkE6q9X999mv81Eu96AoXmaE/view', lenses: ['strategy'] },
+  { title: 'Zomato for Street Food', brief: 'PMx Virtual Champs. Bringing Guwahati’s street food vendors onto Zomato', href: 'https://drive.google.com/file/d/1EeBTIjiZur1GPMtyGi3i_gTpMoGfLF3u/view', lenses: ['product'] },
+  { title: 'Swiggy on Campus', brief: 'Swiggy Food for Thought, Team Chanakya. Making Swiggy the go-to food companion on campus', href: 'https://drive.google.com/file/d/1IvWMjw4ackZUqaryWUh9ipx6PftWDVZm/view', lenses: ['product', 'strategy'] },
 ];
 
 export const education = [

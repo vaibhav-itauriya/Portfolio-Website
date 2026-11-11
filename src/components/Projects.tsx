@@ -8,11 +8,13 @@ import { Blocks, Section, Tags, countItems } from './Section';
 // Shown in full on the Everything view. Order follows the data file.
 const FEATURED_IN_ALL = [
   'Pacto',
+  'FINN',
   'Amazon ML Challenge 2026',
+  'SabhaSaar',
+  'Bharat Trial Network',
   'Campus Beats 2026',
   'LoreDrop',
   'Inter IIT Tech Meet 13.0',
-  'LLuminating Language',
 ];
 
 export default function Projects() {

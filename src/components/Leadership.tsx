@@ -37,6 +37,11 @@ export default function Leadership() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {r.links?.map((l) => (
+              <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="link mt-2 inline-block font-medium">
+                {l.label}
+              </a>
+            ))}
           </li>
         ))}
       </ul>

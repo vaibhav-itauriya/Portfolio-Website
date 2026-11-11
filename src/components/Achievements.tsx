@@ -46,7 +46,17 @@ export default function Achievements() {
                       </th>
                       <td className="py-3">
                         <span className="font-medium">{a.event}</span>
-                        <span className="block text-muted">{a.detail}</span>
+                        <span className="block text-muted">
+                          {a.detail}
+                          {a.deck && (
+                            <>
+                              {'. '}
+                              <a href={a.deck} target="_blank" rel="noopener noreferrer" className="link text-ink">
+                                See the deck
+                              </a>
+                            </>
+                          )}
+                        </span>
                       </td>
                     </tr>
                   );
