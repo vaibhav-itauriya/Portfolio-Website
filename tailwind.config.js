@@ -12,7 +12,7 @@ export default {
         accent: 'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque Variable"', 'system-ui', 'sans-serif'],
         sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
       },
       maxWidth: {

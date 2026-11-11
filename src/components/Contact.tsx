@@ -1,5 +1,5 @@
-import { Download, Github, Instagram, Linkedin, MapPin, Phone } from 'lucide-react';
-import { contact, lenses } from '../data/content';
+import { Download, ExternalLink, Github, Instagram, Linkedin, MapPin, Phone } from 'lucide-react';
+import { contact, lenses, portfolioFolder } from '../data/content';
 
 export default function Contact() {
   const resumes = lenses.filter((l) => l.resume);
@@ -79,6 +79,17 @@ export default function Contact() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={portfolioFolder}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between py-4 text-lg hover:text-white"
+              >
+                Case decks on Google Drive
+                <ExternalLink size={18} aria-hidden />
+              </a>
+            </li>
           </ul>
         </div>
       </div>

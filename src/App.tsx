@@ -1,7 +1,9 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import RoleProof from './components/RoleProof';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import CaseDecks from './components/CaseDecks';
 import Achievements from './components/Achievements';
 import Leadership from './components/Leadership';
 import Background from './components/Background';
@@ -19,8 +21,10 @@ export default function App() {
       <Header />
       <main id="main">
         <Hero />
+        <RoleProof />
         <Experience />
         <Projects />
+        <CaseDecks />
         <Achievements />
         <Leadership />
         <Background />
@@ -29,7 +33,12 @@ export default function App() {
       <footer className="border-t border-rule">
         <div className="mx-auto flex max-w-page flex-col gap-2 px-5 py-8 text-sm text-muted sm:flex-row sm:justify-between md:px-8">
           <p>© {new Date().getFullYear()} Vaibhav Itauriya</p>
-          <p>Built with React and Tailwind</p>
+          <p>
+            Built with React, TypeScript and Tailwind.{' '}
+            <a href="https://github.com/vaibhav-itauriya/Portfolio-Website" target="_blank" rel="noopener noreferrer" className="link text-ink">
+              See the code
+            </a>
+          </p>
         </div>
       </footer>
     </>

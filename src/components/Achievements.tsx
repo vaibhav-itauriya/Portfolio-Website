@@ -30,11 +30,10 @@ export default function Achievements() {
               <tbody>
                 {group.items.map((a) => {
                   const marked = lens !== 'all' && a.lenses.includes(lens);
-                  const dim = lens !== 'all' && !marked;
                   return (
                     <tr
                       key={a.event}
-                      className={`border-t border-rule align-baseline transition-opacity ${dim ? 'opacity-55' : ''}`}
+                      className="border-t border-rule align-baseline"
                     >
                       <th
                         scope="row"
@@ -46,7 +45,17 @@ export default function Achievements() {
                       </th>
                       <td className="py-3">
                         <span className="font-medium">{a.event}</span>
-                        <span className="block text-muted">{a.detail}</span>
+                        <span className="block text-muted">
+                          {a.detail}
+                          {a.deck && (
+                            <>
+                              {'. '}
+                              <a href={a.deck} target="_blank" rel="noopener noreferrer" className="link text-ink">
+                                See the deck
+                              </a>
+                            </>
+                          )}
+                        </span>
                       </td>
                     </tr>
                   );

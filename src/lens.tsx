@@ -5,8 +5,9 @@ import type { Block, Lens, LensInfo, Views } from './data/content';
 
 export const accents: Record<Lens, string> = {
   all: '194 65 12',
+  frontend: '29 78 216',
+  software: '51 65 85',
   product: '190 24 93',
-  software: '29 78 216',
   data: '15 118 110',
   strategy: '109 40 217',
 };

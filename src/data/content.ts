@@ -1,14 +1,16 @@
 // All site content lives here. Edit this file to update the portfolio.
 // Copy style: simple English, no em dashes, few colons or semicolons.
 
-export type Lens = 'all' | 'product' | 'software' | 'data' | 'strategy';
+export type Lens = 'all' | 'frontend' | 'product' | 'software' | 'data' | 'strategy';
 export type Track = Exclude<Lens, 'all'>;
 
 export interface LensInfo {
   id: Lens;
   label: string;
+  headline: string;
   summary: string;
   proof: string[];
+  skills: string[];
   resume?: { href: string; label: string };
 }
 
@@ -16,6 +18,8 @@ export const lenses: LensInfo[] = [
   {
     id: 'all',
     label: 'Everything',
+    headline: 'Product, software and data',
+    skills: ['React', 'Next.js', 'TypeScript', 'Python', 'SQL', 'AWS', 'LLM Agents', 'Figma', 'PRDs'],
     summary:
       'I build products, software and AI agents, and I like starting from the messy problem. At Jaguar Land Rover I built a traceability platform used by 150+ engineers. At PFA India I owned credit card recommendations end to end. Right now I lead placements for 3000+ students at IIT Kanpur.',
     proof: [
@@ -25,8 +29,24 @@ export const lenses: LensInfo[] = [
     ],
   },
   {
+    id: 'frontend',
+    label: 'Frontend',
+    headline: 'Frontend Developer',
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Figma', 'Recharts', 'React Flow', 'three.js', 'Vite'],
+    summary:
+      'I build fast, clear interfaces with React, Next.js and TypeScript, and I design the screens in Figma before I build them. At Jaguar Land Rover I built the dashboard for a traceability platform used by 150+ engineers and cut its page load from 20 sec to 2 sec.',
+    proof: [
+      'Won 1st place in the JLR Global Hackathon, across 7+ countries',
+      'Built React frontends used by 200+ pilot users at PFA India',
+      'Shipped live web apps for FINN, SabhaSaar and a 3D physics simulator',
+    ],
+    resume: { href: '/resumes/Vaibhav_Itauriya_Software.pdf', label: 'Download resume' },
+  },
+  {
     id: 'product',
     label: 'Product',
+    headline: 'Product Manager',
+    skills: ['User Research', 'PRDs', 'Figma', 'GA4', 'SQL', 'A/B Testing', 'JTBD', 'RICE', 'React Prototypes'],
     summary:
       'I start with users and finish with numbers. I run the interviews, write the PRD, prototype in Figma or React, and then track whether it actually moved conversion, CSAT or retention.',
     proof: [
@@ -39,6 +59,8 @@ export const lenses: LensInfo[] = [
   {
     id: 'software',
     label: 'Software',
+    headline: 'Software Engineer',
+    skills: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'AWS Lambda', 'Redshift', 'Redis', 'MCP'],
     summary:
       'I ship full stack systems that people rely on. Data pipelines on AWS, APIs, Next.js dashboards, graph engines and agentic AI on MCP, built to be fast and safe when money or audits are involved.',
     proof: [
@@ -51,6 +73,8 @@ export const lenses: LensInfo[] = [
   {
     id: 'data',
     label: 'Data',
+    headline: 'Data and Product Analyst',
+    skills: ['SQL', 'Python', 'Pandas', 'Excel', 'Power BI', 'GA4', 'LightGBM', 'A/B Testing', 'Forecasting'],
     summary:
       'I turn raw records into decisions. SQL on Redshift over a million artifacts, funnels in GA4, forecasting models and ML pipelines that hold up on a leaderboard.',
     proof: [
@@ -63,6 +87,8 @@ export const lenses: LensInfo[] = [
   {
     id: 'strategy',
     label: 'Strategy',
+    headline: 'Strategy and Consulting',
+    skills: ['Market Sizing', 'GTM', 'Cost-Benefit Analysis', 'Stakeholder Interviews', 'SQL', 'Excel', 'KPI Design'],
     summary:
       'I like structuring problems that have no clean answer yet. Market sizing, GTM, cost-benefit and stakeholder alignment, backed by data rather than gut feel.',
     proof: [
@@ -112,6 +138,18 @@ export const experience: Experience[] = [
             'Cut repo sync from 2 min to 5 sec, cached API latency from 3 sec to 2 ms and page load from 20 sec to 2 sec',
             'Turned a 3-week manual audit into on-demand analysis across 1M+ artifacts',
             'Onboarded 10 teams and 15+ projects in SDV and ADAS, scaling to 500K+ trace links ahead of the JLR-wide rollout',
+          ],
+        },
+      ],
+      frontend: [
+        {
+          items: [
+            'Built the Next.js and TypeScript dashboard for SARVAM, a traceability platform used by 10+ global teams, 150+ engineers and 5+ JLR auditors',
+            'Used Tailwind, Recharts and React Flow for artifact filtering, interactive trace graphs and requirement-to-test mapping views',
+            'Cut page load time from 20 sec to 2 sec with server-side pagination, and cached API latency from 3 sec to 2 ms with Redis',
+            'Designed the 8 filter-aware API routes behind the dashboard on Lambda, API Gateway and Redshift',
+            'Built a BFS traceability engine for 50K-node graphs with depth-controlled traversal, shown in the UI with links to the GitLab files',
+            'Turned a 3-week manual audit into on-demand analysis across 1M+ artifacts',
           ],
         },
       ],
@@ -212,6 +250,16 @@ export const experience: Experience[] = [
             'Scraped 15+ banks every week, scaling from 3 to 50+ webpages a day, and built React frontends for card comparison and FIRE planning',
             'Raised card conversion from 2% to 7% across 5000+ organic visitors, tracked via GA4',
             'Doubled CSAT to 8.4/10 for credit cards and 2.5x to 7.5/10 for FIRE, with 65% repeat usage and ~23-min average sessions',
+          ],
+        },
+      ],
+      frontend: [
+        {
+          items: [
+            'Built responsive React frontends for credit-card comparison and FIRE planning, turning product workflows into simple screens',
+            'Designed the flows in Figma and tested React prototypes with 20+ user interviews and 200+ surveys',
+            'Drove 23-minute average sessions and 8.4/10 satisfaction for card comparison across 200+ pilot users',
+            'Raised card conversion from 2% to 7% of recommendation clicks, tracked via GA4',
           ],
         },
       ],
@@ -319,6 +367,7 @@ export interface Project {
   views: Views;
   tags: string[];
   links?: { href: string; label: string }[];
+  image?: string;
 }
 
 export const projects: Project[] = [
@@ -374,6 +423,66 @@ export const projects: Project[] = [
       ],
     },
     tags: ['GPT-4o-mini', 'MCP', 'Pine Labs', 'Gnani', 'Telegram', 'PRD'],
+    links: [
+      { href: 'https://github.com/parafoxxx/Pacto', label: 'Code' },
+      { href: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7', label: 'Project files' },
+    ],
+  },
+  {
+    title: 'FINN',
+    kind: 'Investment agent for portfolio managers',
+    context: 'Build challenge for ENAM Holdings',
+    dates: 'Nov’26',
+    lenses: ['frontend', 'software', 'product', 'data'],
+    image: '/projects/finn.webp',
+    views: {
+      frontend: [
+        {
+          items: [
+            'Built a mobile-first Next.js 15 and React 19 app in TypeScript and Tailwind that installs to the home screen and sends lock-screen push alerts',
+            'Designed the home screen as a list with an end ("3 things need you") instead of a feed, with swipe to clear or mute and a heatmap for the portfolio',
+            'Voice copilot answers aloud and opens the screen that shows the detail, and any card can be shared to WhatsApp with a link back',
+            'Server routes read BSE filings and results PDFs and push the same alerts to the app, the phone and Telegram',
+          ],
+        },
+      ],
+      all: [
+        {
+          items: [
+            'A mobile-first agent for a portfolio manager with ninety seconds between meetings. It reads every BSE filing and the daily price and volume for 18 holdings, and ranks them into an inbox you can finish',
+            'Reads results PDFs into Revenue, EBITDA, PBT and PAT against last quarter and last year, and explains a CEO change in one card',
+            'Research view checks what management promised on its last four earnings calls against what the company later reported, with every quote string-matched to the source PDF',
+            'Voice copilot and a Telegram bot answer questions and push alerts at thresholds the user sets, with a preview of how noisy each setting would have been over 30 days',
+          ],
+        },
+      ],
+    },
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'PWA', 'LLM Agents', 'Telegram Bot'],
+    links: [
+      { href: 'https://finn-opal-delta.vercel.app', label: 'Live app' },
+      { href: 'https://github.com/vaibhav-itauriya/finn', label: 'Code' },
+    ],
+  },
+  {
+    title: 'This Portfolio',
+    kind: 'The site you are on',
+    context: 'Personal project',
+    dates: 'Nov’26',
+    lenses: ['frontend'],
+    image: '/projects/portfolio.webp',
+    views: {
+      all: [
+        {
+          items: [
+            'Built with React, TypeScript, Vite and Tailwind, and deployed on Vercel',
+            'One page, five views. Picking the role you are hiring for rewrites the experience bullets, reorders the projects and gives you a link to share',
+            'Keeps your place on the page when you switch views, works with a keyboard alone, respects reduced motion and self-hosts its fonts',
+          ],
+        },
+      ],
+    },
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Accessibility'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/Portfolio-Website', label: 'Code' }],
   },
   {
     title: 'Amazon ML Challenge 2026',
@@ -397,6 +506,75 @@ export const projects: Project[] = [
       ],
     },
     tags: ['Python', 'LightGBM', 'Hugging Face', 'TF-IDF', 'NLP'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/Amazon-ML-Challenge-2026', label: 'Code' }],
+  },
+  {
+    title: 'SabhaSaar',
+    kind: 'Meeting minutes in any Indian language',
+    context: 'Sarvam AI hackathon',
+    dates: 'Oct’26',
+    lenses: ['frontend', 'software', 'product'],
+    image: '/projects/sabhasaar.webp',
+    views: {
+      frontend: [
+        {
+          items: [
+            'Built the web app in plain HTML, CSS and JavaScript on a FastAPI backend, with a meeting register, live captions and voice Q&A',
+            'Records any Meet, Zoom or YouTube tab through tab audio sharing, so it works with any meeting app without bots or logins',
+            'Minutes stamp every point with the moment it was said, using Sarvam AI for speech to text, summaries and spoken answers in 11 Indian languages',
+          ],
+        },
+      ],
+      all: [
+        {
+          items: [
+            'Turns Gram Sabha, Panchayat, Parliament and court proceedings into minutes where every point is stamped with the moment it was said',
+            'Built on Sarvam AI, with Saaras v4 for speech to text with speaker separation, Sarvam-105B for minutes and answers, and Bulbul for spoken summaries',
+            'Four ways to add a meeting, from sharing a Meet or Zoom tab to recording the room, a stream link or an upload, with live captions every 25 seconds',
+            'People who missed the meeting can hear a one-minute summary in their own language or ask questions by voice',
+          ],
+        },
+      ],
+    },
+    tags: ['JavaScript', 'HTML', 'CSS', 'FastAPI', 'Sarvam AI', 'Speech AI'],
+    links: [
+      { href: 'https://sarvam-sabhasaar.onrender.com', label: 'Live demo' },
+      { href: 'https://github.com/vaibhav-itauriya/sarvam-sabhasaar', label: 'Code' },
+    ],
+  },
+  {
+    title: 'Bharat Trial Network',
+    kind: 'Paid product trials for Bharat households',
+    context: 'Meesho DICE Challenge Season 3, Business Track. Team Moshi Moshi',
+    dates: 'Oct’26',
+    lenses: ['frontend', 'strategy', 'product'],
+    image: '/projects/bharat-trial-network.webp',
+    views: {
+      frontend: [
+        {
+          items: [
+            'Built a working phone prototype in one HTML, CSS and JavaScript page, with four connected apps for the brand, the buyer, the Valmo hub and Meesho',
+            'A guided demo path and a live money ledger update as you tap through the flow, with light and dark themes',
+            'The idea lets brands pay Meesho to put a free sample in a chosen household’s parcel and see whether she bought it 90 days later',
+          ],
+        },
+      ],
+      all: [
+        {
+          items: [
+            'Brands pay Meesho to put a free sample in a chosen household’s parcel, hear back from her within days and see whether she bought it 90 days later',
+            'Sized it against ₹5,400 Cr of yearly brand sampling spend in India, at ₹9 to ₹16 per delivered trial versus ₹25 to ₹40 per promoter contact',
+            'Designed the flow from checkout flagging to Valmo hub insertion, a 3-question survey for ₹15 off and a 90-day purchase lift against a matched holdout',
+            'Built a working app prototype and projected about 1% of Meesho’s NMV, around ₹650 Cr run-rate by end of FY28, with zero commission',
+          ],
+        },
+      ],
+    },
+    tags: ['HTML', 'CSS', 'JavaScript', 'Monetization', 'GTM'],
+    links: [
+      { href: 'https://vaibhav-itauriya.github.io/moshi-moshi-meesho-dice-3.0/', label: 'Live prototype' },
+      { href: 'https://github.com/vaibhav-itauriya/moshi-moshi-meesho-dice-3.0', label: 'Code' },
+    ],
   },
   {
     title: 'Campus Beats 2026',
@@ -426,8 +604,18 @@ export const projects: Project[] = [
     context: 'CS253 course project under Prof. Indranil Saha, CSE, IIT Kanpur',
     dates: 'Jan’26 – Apr’26',
     role: '9-member team',
-    lenses: ['software', 'product'],
+    lenses: ['frontend', 'software', 'product'],
     views: {
+      frontend: [
+        {
+          items: [
+            'Built a campus event platform in React and TypeScript (Vite, Tailwind, Radix UI) for all of IIT Kanpur’s 47 registered student clubs',
+            'Discovery feed, organization pages and follows, calendar save and RSVP flows, and an organizer workspace for events, tasks and analytics',
+            'Role-based screens for students, organizers and admins, with OTP login limited to verified IITK members',
+            'Personalized feed backed by indexed MongoDB queries for faster loading, built in a 9-member team over Git and GitHub',
+          ],
+        },
+      ],
       all: [
         {
           items: [
@@ -441,6 +629,10 @@ export const projects: Project[] = [
       ],
     },
     tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Firebase'],
+    links: [
+      { href: 'https://github.com/parafoxxx/Loredrop', label: 'Code' },
+      { href: 'https://drive.google.com/drive/folders/1mLWXR7MXlehWiwf1G0hj-TUxZl1VWUfK', label: 'Project files' },
+    ],
   },
   {
     title: 'Inter IIT Tech Meet 13.0',
@@ -463,6 +655,7 @@ export const projects: Project[] = [
       ],
     },
     tags: ['Forecasting', 'Cost-Benefit', 'Geospatial', 'Roadmap'],
+    links: [{ href: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg', label: 'Report and deck' }],
   },
   {
     title: 'Crickcast',
@@ -483,6 +676,7 @@ export const projects: Project[] = [
       ],
     },
     tags: ['XGBoost', 'LightGBM', 'Feature Engineering'],
+    links: [{ href: 'https://github.com/Akshatgarg221/Crickcast', label: 'Code' }],
   },
   {
     title: 'LLuminating Language',
@@ -507,12 +701,34 @@ export const projects: Project[] = [
     links: [{ href: 'https://github.com/udbhav-44/BCS-Lluminating-Language', label: 'Code' }],
   },
   {
+    title: 'Narrative-Core',
+    kind: 'AI story generation for audio series',
+    context: 'Project K by KUKU FM, built with a team',
+    dates: 'Apr’25',
+    badge: 'National Finalist, top 10 teams',
+    lenses: ['software', 'data'],
+    views: {
+      all: [
+        {
+          items: [
+            'An AI pipeline that turns a concept note into coherent, culturally rooted multi-episode scripts',
+            'Each character keeps a memory in ChromaDB, retrieved by relevance, recency and importance, so behaviour and dialogue stay consistent across episodes',
+            'Uses RAG over a store of Indian story frameworks for cultural context, and ranks context to fit the LLM’s token limit at every step',
+            'LLM-based quality checks review each generated episode',
+          ],
+        },
+      ],
+    },
+    tags: ['LLM', 'RAG', 'ChromaDB', 'NLP'],
+    links: [{ href: 'https://github.com/Krishnaag23/narrative-core', label: 'Code' }],
+  },
+  {
     title: 'DoRD Project Portal',
     kind: 'Research project discovery for IIT Kanpur',
     context: 'E&ICT Academy and DoMS, IIT Kanpur',
     dates: 'Jul’24 – Sep’24',
     role: '7-member team, mentored by Ark Srinivas and Prof. B.V. Phani',
-    lenses: ['product', 'software'],
+    lenses: ['product', 'software', 'frontend'],
     views: {
       all: [
         {
@@ -552,7 +768,7 @@ export const projects: Project[] = [
     title: 'Academic & Career Council Website',
     kind: 'Council website',
     context: 'Academic & Career Council, IIT Kanpur',
-    lenses: ['software'],
+    lenses: ['frontend', 'software'],
     views: {
       all: [
         {
@@ -564,26 +780,86 @@ export const projects: Project[] = [
     },
     tags: ['Next.js', 'TypeScript'],
     links: [
-      { href: 'https://www.anciitk.in/', label: 'Live site' },
+      { href: 'https://anc-website-blond.vercel.app/', label: 'Live site' },
       { href: 'https://github.com/AnC-Council-IIT-Kanpur/Website', label: 'Code' },
     ],
   },
   {
     title: 'Rattleback Dynamics',
     kind: 'Undergraduate research project',
-    context: 'Under Prof. Dipayan Mukherjee, Mechanical Engineering, IIT Kanpur',
-    lenses: [],
+    context: 'With Prof. Dipayan Mukherjee, Mechanical Engineering, IIT Kanpur',
+    dates: '2026',
+    lenses: ['frontend', 'software', 'data'],
+    image: '/projects/rattleback.webp',
     views: {
+      frontend: [
+        {
+          items: [
+            'Built an interactive 3D simulator in plain JavaScript with three.js and uPlot, running the solver in a Web Worker so the page never freezes',
+            'Synced 3D playback with six live charts, run comparison, parameter sweeps and CSV, PNG and JSON export, plus keyboard shortcuts and light and dark themes',
+            'Runs the same equations as my research paper on slipping contact friction with Prof. Mukherjee, and matches its results',
+          ],
+        },
+      ],
       all: [
         {
           items: [
-            'Extending a rolling rattleback model to include contact friction',
-            'Simulating the dynamics in MATLAB and writing the work up as a paper',
+            'Extended a rolling rattleback model to slipping contact friction using the Moffatt–Shimomura contact laws, written up as a paper with Prof. Mukherjee',
+            'Built an interactive 3D simulator that runs the same equations in the browser, with rolling, Coulomb and viscous contact, live checks and nine ready-made cases from the paper',
+            'Added one-parameter sweeps, overlaid run history and CSV, PNG and JSON export, plus a link that reopens the exact setup',
           ],
         },
       ],
     },
-    tags: ['MATLAB', 'Dynamics', 'LaTeX'],
+    tags: ['JavaScript', 'three.js', 'Web Workers', 'MATLAB'],
+    links: [
+      { href: 'https://vaibhav-itauriya.github.io/ugp-rattleback/', label: 'Simulator' },
+      { href: 'https://github.com/vaibhav-itauriya/ugp-rattleback/blob/main/paper/Itauriya_Mukherjee_rattleback.pdf', label: 'Paper' },
+      { href: 'https://github.com/vaibhav-itauriya/ugp-rattleback', label: 'Code' },
+    ],
+  },
+  {
+    title: 'Satellite-Map CycleGAN',
+    kind: 'Satellite image to map translation',
+    context: 'EE655 Computer Vision and Deep Learning, Prof. Koteswar Jerripothula',
+    dates: 'Apr’25',
+    lenses: ['data'],
+    views: {
+      all: [{ items: ['Trained a CycleGAN in PyTorch that translates satellite images into maps and back, written up as a short research paper'] }],
+    },
+    tags: ['PyTorch', 'CycleGAN', 'Computer Vision'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/EE655-CV-DL', label: 'Code' }],
+  },
+  {
+    title: 'SARCathon 2024',
+    kind: 'FAQ search engine',
+    context: 'AI hackathon by SARC, IIT Bombay. Team Chanakya',
+    dates: 'Oct’24',
+    lenses: ['software'],
+    views: {
+      all: [
+        {
+          items: [
+            'Flask app with fuzzy matching and semantic search using Sentence Transformers and FAISS, plus live suggestions, search history and answer feedback',
+          ],
+        },
+      ],
+    },
+    tags: ['Flask', 'FAISS', 'Sentence Transformers'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/SARCathon-2024---AI-Hackathon', label: 'Code' }],
+  },
+  {
+    title: 'Course Portal',
+    kind: 'Course management app',
+    context: 'Personal project',
+    dates: 'Jan’25',
+    lenses: ['frontend', 'software'],
+    views: { all: [{ items: ['Sign up, log in and manage courses, built with React, TypeScript and Supabase'] }] },
+    tags: ['React', 'Supabase'],
+    links: [
+      { href: 'https://course-portal-jet.vercel.app', label: 'Live site' },
+      { href: 'https://github.com/vaibhav-itauriya/course-portal', label: 'Code' },
+    ],
   },
   {
     title: 'Vidya Vaani',
@@ -602,17 +878,36 @@ export const projects: Project[] = [
     tags: ['ASR', 'NLP', 'Mobile'],
   },
   {
-    title: 'Deeploy CV',
-    kind: 'Computer vision basics',
-    context: 'Self-learning project',
+    title: 'DeeployCV',
+    kind: 'Deepfake detection',
+    context: 'Google Developer Group, IIT Kanpur',
+    dates: 'Jan’25',
     lenses: ['data'],
     views: {
-      all: [{ items: ['Worked with OpenCV, Pillow and pre-trained deep learning models'] }],
+      all: [
+        {
+          items: [
+            'Upload a photo and the model tells you if it is real or a deepfake, built with Keras and Streamlit',
+            'Assignments along the way covered OpenCV, Pillow and pre-trained deep learning models',
+          ],
+        },
+      ],
     },
-    tags: ['OpenCV', 'Python'],
+    tags: ['Keras', 'Streamlit', 'OpenCV'],
     links: [
-      { href: 'https://github.com/vaibhav-itauriya/231115_Vaibhav_Itauriya_DeeployCV', label: 'Code' },
+      { href: 'https://github.com/vaibhav-itauriya/DeeployCV', label: 'Code' },
+      { href: 'https://github.com/vaibhav-itauriya/231115_Vaibhav_Itauriya_DeeployCV', label: 'Assignments' },
     ],
+  },
+  {
+    title: 'IR Wing Website',
+    kind: 'Website',
+    context: 'International Relations Wing, IIT Kanpur',
+    dates: 'May’24',
+    lenses: ['frontend', 'software'],
+    views: { all: [{ items: ['Website for the International Relations Wing of IIT Kanpur, in HTML and CSS'] }] },
+    tags: ['HTML', 'CSS'],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/IR-Wing-Repo', label: 'Code' }],
   },
 ];
 
@@ -621,28 +916,29 @@ export interface Achievement {
   event: string;
   detail: string;
   lenses: Track[];
+  deck?: string;
 }
 
 export const achievements: { group: string; items: Achievement[] }[] = [
   {
     group: 'Business and product',
     items: [
-      { result: '1st Place', event: 'JLR Global Hackathon', detail: 'Represented India across 7+ countries', lenses: ['software', 'product'] },
+      { result: '1st Place', event: 'JLR Global Hackathon', detail: 'Represented India across 7+ countries', lenses: ['frontend', 'software', 'product'] },
       { result: 'Top 10', event: 'Campus Beats 2026, ZS Associates (Market Entry and GTM)', detail: 'Secured a Pre-Placement Interview', lenses: ['strategy', 'product'] },
-      { result: 'National Finalist', event: 'The Ken × Zerodha Case Competition 2026 (Agentic AI)', detail: 'Top 7% of 6,000+ teams', lenses: ['product', 'software'] },
+      { result: 'National Finalist', event: 'The Ken × Zerodha Case Competition 2026 (Agentic AI)', detail: 'Top 7% of 6,000+ teams', lenses: ['product', 'software'], deck: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7' },
       { result: '2nd Rank', event: 'Bizzaro, IITB SARC × Piramal (Product Pitch)', detail: '2nd of 300+ teams', lenses: ['product', 'strategy'] },
-      { result: '5th Rank', event: 'ConsultQuest, IITB × Piramal (Education Reform Case)', detail: '5th of 300+ teams', lenses: ['strategy'] },
-      { result: '5th Rank', event: 'Inter IIT Tech Meet 13.0, Insolation Energy (Consulting Case)', detail: '5th across 23 IITs', lenses: ['strategy', 'data'] },
-      { result: 'National Finalist', event: 'ProdMad 4.0, IIM Shillong (Product Management Case)', detail: 'Top 10 of 2,000+ participants', lenses: ['product'] },
-      { result: 'Semi-Finalist', event: 'Bruce Henderson Ideathon 2025, BCG (HealthTech GTM)', detail: 'Top 10% of 700+ applicants', lenses: ['strategy'] },
-      { result: '3rd Place', event: 'The Product League', detail: 'Product case competition', lenses: ['product'] },
+      { result: '5th Rank', event: 'ConsultQuest, IITB × Piramal (Education Reform Case)', detail: '5th of 300+ teams', lenses: ['strategy'], deck: 'https://drive.google.com/file/d/1fpC2OGzPoEarcZwNV92bJMdw3KQqC9Y7/view' },
+      { result: '5th Rank', event: 'Inter IIT Tech Meet 13.0, Insolation Energy (Consulting Case)', detail: '5th across 23 IITs', lenses: ['strategy', 'data'], deck: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg' },
+      { result: 'National Finalist', event: 'ProdMad 4.0, IIM Shillong (Product Management Case)', detail: 'Top 10 of 2,000+ participants', lenses: ['product'], deck: 'https://drive.google.com/file/d/1Ixv-eW6tBl4zTDOl60cLJ5Sr3T5d6ZgH/view' },
+      { result: 'Semi-Finalist', event: 'Bruce Henderson Ideathon 2025, BCG (HealthTech GTM)', detail: 'Top 10% of 700+ applicants', lenses: ['strategy'], deck: 'https://drive.google.com/file/d/1YVOi0IinbkE6q9X999mv81Eu96AoXmaE/view' },
+      { result: '2nd Rank', event: 'The Product League (Growing Mutual Funds on Dhan)', detail: 'Team The Pirates', lenses: ['product'], deck: 'https://drive.google.com/file/d/1bbcV02DqCcXov0IR2-dymh7_JkPZWx9T/view' },
     ],
   },
   {
     group: 'Technical',
     items: [
-      { result: '4th Rank', event: 'Code & Compete, Techkriti’26 (Data Structures and Algorithms)', detail: 'Among 5,000+ participants nationally', lenses: ['software'] },
-      { result: 'Rank 254', event: 'Goldman Sachs India Hackathon 2025', detail: 'Top 3% of 9,000+ participants', lenses: ['software', 'data'] },
+      { result: '4th Rank', event: 'Code & Compete, Techkriti’26 (Data Structures and Algorithms)', detail: 'Among 5,000+ participants nationally', lenses: ['frontend', 'software'] },
+      { result: 'Rank 254', event: 'Goldman Sachs India Hackathon 2025', detail: 'Top 3% of 9,000+ participants', lenses: ['frontend', 'software', 'data'] },
       { result: 'Rank 384', event: 'Amazon ML Challenge 2026', detail: 'Top 1.5% of 25,000+ teams', lenses: ['software', 'data'] },
       { result: 'National Finalist', event: 'Project K, KUKU FM (AI and NLP Story Generation)', detail: 'Top 10 teams nationwide', lenses: ['software', 'data'] },
       { result: 'Best Implementation', event: 'SnT Summer Projects 2024, RAG Chatbot for IIT Kanpur', detail: 'Best of 50+ projects', lenses: ['software', 'data'] },
@@ -671,6 +967,7 @@ export interface Role {
   path?: string;
   note?: string;
   items: string[];
+  links?: { href: string; label: string }[];
 }
 
 export const leadership: Role[] = [
@@ -698,7 +995,9 @@ export const leadership: Role[] = [
       'Organised 8+ PM sessions with 1000+ attendees alongside BITS, IIT Jodhpur and IIM Shillong',
       'Ran student product events including Product Talks and Prod-A-Thon',
       'Organised Nexus with TPF, YHills and Domnom, engaging 200+ competing teams with a ₹3L+ prize pool',
+      'Put together Casebook 2025, a collection of product interview transcripts, decks and cases for students',
     ],
+    links: [{ href: 'https://github.com/vaibhav-itauriya/Casebook-2025-Product-Club', label: 'Casebook 2025' }],
   },
   {
     org: 'Academic & Career Council, IIT Kanpur',
@@ -723,6 +1022,28 @@ export const leadership: Role[] = [
   },
 ];
 
+export const portfolioFolder = 'https://drive.google.com/drive/folders/1Nm4Gr_9JRRmAuKND883s7ujTM4azgLKO';
+
+export interface Deck {
+  title: string;
+  brief: string;
+  result?: string;
+  href: string;
+  lenses: Track[];
+}
+
+export const decks: Deck[] = [
+  { title: 'Pacto', brief: 'The Ken × Zerodha 2026, Agentic AI Build Track. Money-backed accountability agent', result: 'National Finalist', href: 'https://drive.google.com/drive/folders/1rmXOWr3sCEGJMYZGxm0dIfD0_a7c_9v7', lenses: ['product', 'software'] },
+  { title: 'LoreDrop', brief: 'CS253 project. Campus event platform for all 47 student clubs at IIT Kanpur', href: 'https://drive.google.com/drive/folders/1mLWXR7MXlehWiwf1G0hj-TUxZl1VWUfK', lenses: ['product', 'software'] },
+  { title: 'Solar Waste in India', brief: 'Inter IIT Tech Meet 13.0, Insolation Energy. Forecast to 2040 and a national recycling plan, report and deck', result: '5th of 23 IITs', href: 'https://drive.google.com/drive/folders/1joKOQDXkTQNDiPt96oiTBkT9BNmh4-sg', lenses: ['strategy', 'data'] },
+  { title: 'Growing Mutual Funds on Dhan', brief: 'The Product League. Strategy to reach 1 million+ mutual fund users in 12 months', result: '2nd Rank', href: 'https://drive.google.com/file/d/1bbcV02DqCcXov0IR2-dymh7_JkPZWx9T/view', lenses: ['product', 'strategy'] },
+  { title: 'BioMorph', brief: 'ProdMad 4.0, IIM Shillong. App for bio-printed organ transplants, with personas, Figma flows and phased GTM', result: 'National Finalist', href: 'https://drive.google.com/file/d/1Ixv-eW6tBl4zTDOl60cLJ5Sr3T5d6ZgH/view', lenses: ['product'] },
+  { title: 'ConsultQuest', brief: 'IITB × Piramal. Education reform case, Team Chanakya', result: '5th of 300+ teams', href: 'https://drive.google.com/file/d/1fpC2OGzPoEarcZwNV92bJMdw3KQqC9Y7/view', lenses: ['strategy'] },
+  { title: 'Bruce Henderson Ideathon', brief: 'BCG 2025. HealthTech GTM', result: 'Top 10%', href: 'https://drive.google.com/file/d/1YVOi0IinbkE6q9X999mv81Eu96AoXmaE/view', lenses: ['strategy'] },
+  { title: 'Zomato for Street Food', brief: 'PMx Virtual Champs. Bringing Guwahati’s street food vendors onto Zomato', href: 'https://drive.google.com/file/d/1EeBTIjiZur1GPMtyGi3i_gTpMoGfLF3u/view', lenses: ['product'] },
+  { title: 'Swiggy on Campus', brief: 'Swiggy Food for Thought, Team Chanakya. Making Swiggy the go-to food companion on campus', href: 'https://drive.google.com/file/d/1IvWMjw4ackZUqaryWUh9ipx6PftWDVZm/view', lenses: ['product', 'strategy'] },
+];
+
 export const education = [
   { degree: 'B.Tech, Mechanical Engineering', school: 'Indian Institute of Technology Kanpur', years: '2023 – 2027', score: 'CPI 7.4/10' },
   { degree: 'CBSE Class XII', school: 'The Gramodaya International College, Mauranipur', years: '2023', score: '91.4%' },
@@ -740,12 +1061,13 @@ export const courses = [
 ];
 
 export const skills: { group: string; lenses: Track[]; items: string[] }[] = [
-  { group: 'Languages', lenses: ['software', 'data'], items: ['C/C++', 'Python', 'SQL', 'TypeScript', 'JavaScript', 'HTML'] },
-  { group: 'Web and backend', lenses: ['software'], items: ['Next.js', 'React', 'Node.js', 'Django', 'REST APIs'] },
+  { group: 'Frontend', lenses: ['frontend', 'software'], items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'React Flow', 'three.js', 'Vite'] },
+  { group: 'Languages', lenses: ['frontend', 'software', 'data'], items: ['C/C++', 'Python', 'SQL', 'TypeScript', 'JavaScript', 'HTML'] },
+  { group: 'Backend', lenses: ['software', 'frontend'], items: ['Node.js', 'Express', 'FastAPI', 'Django', 'REST APIs'] },
   { group: 'Cloud and databases', lenses: ['software', 'data'], items: ['AWS Lambda', 'API Gateway', 'Redshift', 'DynamoDB', 'MongoDB', 'Redis', 'ChromaDB', 'Docker', 'CI/CD'] },
   { group: 'AI and ML', lenses: ['software', 'data'], items: ['PyTorch', 'LightGBM', 'XGBoost', 'Scikit-learn', 'Hugging Face', 'LangChain', 'RAG', 'MCP', 'Agentic AI', 'Prompt Evals'] },
   { group: 'Data and analytics', lenses: ['data', 'strategy', 'product'], items: ['Pandas', 'Excel', 'Power BI', 'GA4', 'Regression', 'Hypothesis Testing', 'A/B Testing', 'ARIMA'] },
-  { group: 'Product tools', lenses: ['product'], items: ['Figma', 'Lucidchart', 'Mixpanel', 'Amplitude', 'Jira', 'Notion'] },
+  { group: 'Product and design tools', lenses: ['product', 'frontend'], items: ['Figma', 'Lucidchart', 'Mixpanel', 'Amplitude', 'Jira', 'Notion'] },
   { group: 'Frameworks', lenses: ['product', 'strategy'], items: ['PRD', 'JTBD', 'RICE', 'MoSCoW', 'Funnels', 'Market Sizing', 'Cost-Benefit Analysis'] },
 ];
 
@@ -764,4 +1086,64 @@ export const contact = {
   github: 'https://github.com/vaibhav-itauriya',
   linkedin: 'https://in.linkedin.com/in/vaibhav-itauriya/',
   instagram: 'https://www.instagram.com/vaibhav_itauriya/',
+};
+
+export const projectAnchor = (title: string) => `project-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
+
+export interface ProofRow {
+  skill: string;
+  proof: string;
+  links: { label: string; href: string }[];
+}
+
+const p = (title: string) => ({ label: title, href: `#${projectAnchor(title)}` });
+
+// A role-specific "skills, with proof" table. Only roles listed here get the section.
+export const roleProof: Partial<Record<Track, { title: string; intro: string; rows: ProofRow[] }>> = {
+  frontend: {
+    title: 'Frontend skills, with proof',
+    intro: 'Each skill links to the work that shows it.',
+    rows: [
+      {
+        skill: 'HTML, CSS and JavaScript',
+        proof: 'Built the rattleback simulator, SabhaSaar and the Bharat Trial Network prototype in plain HTML, CSS and JavaScript, with no framework',
+        links: [p('Rattleback Dynamics'), p('SabhaSaar'), p('Bharat Trial Network')],
+      },
+      {
+        skill: 'React and components',
+        proof: 'Built the SARVAM dashboard at JLR in Next.js and TypeScript, FINN in Next.js 15 and React 19, and LoreDrop in React and TypeScript',
+        links: [{ label: 'JLR', href: '#experience' }, p('FINN'), p('LoreDrop')],
+      },
+      {
+        skill: 'Responsive, mobile-first UI',
+        proof: 'FINN is designed for a phone first and installs to the home screen. This site works from a 390px phone up to a wide screen',
+        links: [p('FINN'), p('This Portfolio')],
+      },
+      {
+        skill: 'Working with designers',
+        proof: 'Designed flows in Figma before building them at PFA India, and iterated 5+ Figma workflows over 30+ user tests for the DoRD Project Portal',
+        links: [{ label: 'PFA India', href: '#experience' }, p('DoRD Project Portal')],
+      },
+      {
+        skill: 'Node.js and APIs',
+        proof: 'Built the Express and MongoDB API for LoreDrop, 8 REST API routes on AWS Lambda at JLR, and Next.js API routes for FINN',
+        links: [p('LoreDrop'), { label: 'JLR', href: '#experience' }, p('FINN')],
+      },
+      {
+        skill: 'Performance',
+        proof: 'Cut page load from 20 sec to 2 sec and cached API latency from 3 sec to 2 ms at JLR. This site scores 90+ for performance and 100 for accessibility on Lighthouse',
+        links: [{ label: 'JLR', href: '#experience' }, p('This Portfolio')],
+      },
+      {
+        skill: 'Code quality and teamwork',
+        proof: 'Worked in a 9-member team over Git and GitHub on LoreDrop, wrote TypeScript across JLR, FINN and LoreDrop, and ran 18 end-to-end test rounds on Pacto',
+        links: [p('LoreDrop'), p('Pacto')],
+      },
+      {
+        skill: 'UI internships',
+        proof: 'Software Intern at Jaguar Land Rover, SDE Intern at Turantlo building a Next.js and React website, and React frontends at PFA India',
+        links: [{ label: 'Experience', href: '#experience' }],
+      },
+    ],
+  },
 };
