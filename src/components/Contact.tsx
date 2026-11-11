@@ -1,84 +1,85 @@
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Download, Github, Instagram, Linkedin, MapPin, Phone } from 'lucide-react';
+import { contact, lenses } from '../data/content';
 
 export default function Contact() {
+  const resumes = lenses.filter((l) => l.resume);
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-dark-darker to-dark">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">Get in Touch</h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-dark-lighter p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-center">
-                  <Mail className="text-primary mr-4" size={24} />
-                  <div>
-                    <p className="font-medium text-white">Email</p>
-                    <a href="mailto:vaibhav23@iitk.ac.in" className="text-gray-400 hover:text-primary">
-                      vaibhav23@iitk.ac.in
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="text-primary mr-4" size={24} />
-                  <div>
-                    <p className="font-medium text-white">Phone</p>
-                    <a href="tel:+919125156329" className="text-gray-400 hover:text-primary">
-                      +91 912-5156-329
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="text-primary mr-4" size={24} />
-                  <div>
-                    <p className="font-medium text-white">Location</p>
-                    <p className="text-gray-400">Kanpur, Uttar Pradesh, India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 bg-dark-lighter border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 bg-dark-lighter border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-2 bg-dark-lighter border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+    <section id="contact" className="bg-ink text-paper">
+      <div className="mx-auto grid max-w-page gap-12 px-5 py-20 md:grid-cols-12 md:px-8 md:py-28">
+        <div className="md:col-span-7">
+          <h2
+            className="font-display font-extrabold"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 0.95, letterSpacing: '-0.03em' }}
+          >
+            Let’s talk
+          </h2>
+          <p className="mt-5 max-w-md text-lg text-paper/75">
+            I’m open to full-time roles in product, software, data and consulting. Email is the fastest way to reach me.
+          </p>
+          <ul className="mt-8 space-y-2">
+            {contact.emails.map((e) => (
+              <li key={e}>
+                <a
+                  href={`mailto:${e}`}
+                  className="break-all font-display text-2xl font-semibold underline decoration-paper/30 underline-offset-[6px] hover:decoration-[rgb(var(--accent))] md:text-3xl"
                 >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
+                  {e}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-8 space-y-2 text-paper/75">
+            <li className="flex items-center gap-3">
+              <Phone size={18} aria-hidden />
+              <a href={contact.phone.href} className="hover:text-paper">
+                {contact.phone.display}
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <MapPin size={18} aria-hidden />
+              {contact.location}
+            </li>
+          </ul>
+          <ul className="mt-8 flex gap-3">
+            {[
+              { href: contact.linkedin, label: 'LinkedIn', Icon: Linkedin },
+              { href: contact.github, label: 'GitHub', Icon: Github },
+              { href: contact.instagram, label: 'Instagram', Icon: Instagram },
+            ].map(({ href, label, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/25 hover:border-paper"
+                >
+                  <Icon size={19} aria-hidden />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="md:col-span-5 md:pt-4">
+          <h3 className="font-display text-xl font-semibold">Resumes</h3>
+          <p className="mt-2 text-paper/75">One for each kind of role, as PDFs.</p>
+          <ul className="mt-5 divide-y divide-paper/15 border-y border-paper/15">
+            {resumes.map((l) => (
+              <li key={l.id}>
+                <a
+                  href={l.resume!.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between py-4 text-lg hover:text-white"
+                >
+                  {l.resume!.label}
+                  <Download size={18} aria-hidden />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

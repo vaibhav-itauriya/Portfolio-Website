@@ -1,113 +1,141 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-import { Card } from './ui/Card';
+import { useState } from 'react';
+import { Award, ChevronDown, ExternalLink } from 'lucide-react';
+import { projects } from '../data/content';
+import type { Project } from '../data/content';
+import { pickView, useLens } from '../lens';
+import { Blocks, Section, Tags, countItems } from './Section';
 
-const projects = [
-  {
-    title: "Deeploy CV",
-    description: "In this project, I have learnt about using OpenCV, Pillow and also used some pre-trained models.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/vaibhav-itauriya/231115_Vaibhav_Itauriya_DeeployCV",
-    tags: ["OpenCV", "Python", "Deep Learning"]
-  },
-  {
-    title: "Vidya Vaani",
-    description: "This project is under Prof. Dr. Ashutosh Modi, Department of CSE, in this I am developing mobile application for the ASR and NLP enabled model which will generate real time captioning for engineering class lectures.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-    tags: ["NLP", "ASR", "Mobile App"]
-  },
-  {
-    title: "Inter IIT Tech Meet 13.0",
-    description: "Worked on a energy consulting problem statement for solving issues in recycling of solar PV waste.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-    demo: "https://demo.com",
-    tags: ["Energy", "Consulting"]
-  },
-  {
-    title: "Project Allocation Website",
-    description: "Making a project allocation system for IITK's R&D office, enabling efficient assignment of research projects.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/AnC-Council-IIT-Kanpur/ProjectPortal",
-    tags: ["Next.js", "React", "TypeScript"]
-  },
-  {
-    title: "Academic & Career Council Website",
-    description: "Made the council's website, using Next.js and TypeScript and also improved performance and user experience.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/AnC-Council-IIT-Kanpur/Website",
-    demo: "https://www.anciitk.in/",
-    tags: ["Next.js", "TypeScript", "UI/UX"]
-  },
-  {
-    title: "Lluminating Language",
-    description: "This project was under BCS IITK, in this we built an IITK community-focused chatbot using RAG and LLMs (Llama3-7b-instruct), fine-tuned on IIT Kanpur data.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/udbhav-44/BCS-Lluminating-Language",
-    tags: ["LLM", "RAG", "NLP"]
-  }
+// Shown in full on the Everything view. Order follows the data file.
+const FEATURED_IN_ALL = [
+  'Pacto',
+  'Amazon ML Challenge 2026',
+  'Campus Beats 2026',
+  'LoreDrop',
+  'Inter IIT Tech Meet 13.0',
+  'LLuminating Language',
 ];
 
 export default function Projects() {
+  const { lens, info } = useLens();
+
+  const featured =
+    lens === 'all'
+      ? projects.filter((p) => FEATURED_IN_ALL.includes(p.title))
+      : projects.filter((p) => p.lenses.includes(lens));
+  const rest = projects.filter((p) => !featured.includes(p));
+
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-dark-lighter to-dark">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="group overflow-hidden"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-dark-darker opacity-60 z-10"></div>
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6 relative z-20">
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, idx) => (
-                    <span 
-                      key={idx}
-                      className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-4">
-                  {project.github && (
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-primary hover:text-primary-light transition-colors"
-                    >
-                      <Github size={20} className="mr-2" />
-                      Code
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a 
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-primary hover:text-primary-light transition-colors"
-                    >
-                      <ExternalLink size={20} className="mr-2" />
-                      Demo
-                    </a>
-                  )}
-                </div>
-              </div>
-            </Card>
+    <Section
+      id="projects"
+      title="Projects"
+      intro={
+        lens === 'all'
+          ? 'Newest and biggest first. Everything else is folded below.'
+          : `The projects that show my ${info.label.toLowerCase()} work. The rest are folded below.`
+      }
+    >
+      <div key={lens} className="lens-fade">
+        <ul className="divide-y divide-rule border-y border-rule">
+          {featured.map((p) => (
+            <li key={p.title} className="py-9">
+              <ProjectBody project={p} />
+            </li>
           ))}
-        </div>
+        </ul>
+
+        {rest.length > 0 && (
+          <div className="mt-12">
+            <h3 className="font-display text-xl font-semibold">More projects</h3>
+            <ul className="mt-4 divide-y divide-rule border-y border-rule">
+              {rest.map((p) => (
+                <li key={p.title}>
+                  <details className="group py-4">
+                    <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                      <span>
+                        <span className="font-semibold">{p.title}</span>
+                        <span className="text-muted">, {p.kind}</span>
+                      </span>
+                      <span className="flex shrink-0 items-center gap-2 text-sm text-muted">
+                        {p.dates}
+                        <ChevronDown size={18} aria-hidden className="transition-transform group-open:rotate-180" />
+                      </span>
+                    </summary>
+                    <div className="pt-4">
+                      <ProjectBody project={p} compact />
+                    </div>
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </section>
+    </Section>
+  );
+}
+
+function ProjectBody({ project: p, compact = false }: { project: Project; compact?: boolean }) {
+  const { lens } = useLens();
+  const blocks = pickView(p.views, lens);
+  const total = countItems(blocks);
+  const [expanded, setExpanded] = useState(false);
+  const limit = compact || expanded ? undefined : 3;
+
+  return (
+    <article>
+      {!compact && (
+        <h3 className="font-display text-2xl font-semibold leading-tight md:text-[1.75rem]">
+          {p.title}
+          <span className="font-normal text-muted">, {p.kind}</span>
+        </h3>
+      )}
+      <div className={`${compact ? '' : 'mt-1'} flex flex-col gap-x-6 text-muted sm:flex-row sm:justify-between`}>
+        <p>
+          {p.context}
+          {p.role && <>. {p.role}</>}
+        </p>
+        {!compact && p.dates && <p className="shrink-0">{p.dates}</p>}
+      </div>
+      {p.badge && (
+        <p className="mt-3 inline-flex items-center gap-2 font-medium text-accent">
+          <Award size={18} aria-hidden />
+          {p.badge}
+        </p>
+      )}
+
+      <div className="mt-4">
+        <Blocks blocks={blocks} limit={limit} />
+        {!compact && total > 3 && (
+          <button
+            type="button"
+            onClick={() => setExpanded(!expanded)}
+            aria-expanded={expanded}
+            className="link mt-3 font-medium"
+          >
+            {expanded ? 'Show less' : `Show all ${total} points`}
+          </button>
+        )}
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <Tags tags={p.tags} />
+        {p.links && (
+          <div className="flex gap-4">
+            {p.links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link inline-flex items-center gap-1.5 font-medium"
+              >
+                {l.label}
+                <ExternalLink size={15} aria-hidden />
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
   );
 }

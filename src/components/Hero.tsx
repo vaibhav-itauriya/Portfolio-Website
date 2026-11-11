@@ -1,46 +1,96 @@
-import React from 'react';
-import { Section } from './ui/Section';
-import { Card } from './ui/Card';
+import { Download, Github, Linkedin, Mail } from 'lucide-react';
+import LensSwitch from './LensSwitch';
+import { useLens } from '../lens';
+import { contact } from '../data/content';
 
 export default function Hero() {
+  const { lens, info } = useLens();
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark-darker via-dark to-dark-lighter pt-16 relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-5"></div>
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2 mb-12 md:mb-0">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Hi, I'm <span className="gradient-text">Vaibhav Itauriya</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              A passionate developer crafting beautiful and functional web experiences and also doing some machine learning stuffs.
-            </p>
-            <div className="flex gap-4">
-              <a 
-                href="#contact"
-                className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+    <section id="top" className="mx-auto max-w-page px-5 pb-16 pt-10 md:px-8 md:pb-24 md:pt-16">
+      <div className="grid items-start gap-12 md:grid-cols-12">
+        <div className="md:col-span-7">
+          <p className="text-muted">Final year, Mechanical Engineering, IIT Kanpur</p>
+          <h1
+            className="mt-3 font-display font-extrabold text-ink"
+            style={{ fontSize: 'clamp(3.25rem, 9vw, 6.5rem)', lineHeight: 0.92, letterSpacing: '-0.035em' }}
+          >
+            Vaibhav
+            <br />
+            Itauriya
+          </h1>
+
+          <div className="mt-10">
+            <p className="mb-3 text-muted">Read this page as</p>
+            <LensSwitch />
+          </div>
+
+          <div key={lens} className="lens-fade mt-8 max-w-[38rem]">
+            <p className="text-xl leading-relaxed text-ink">{info.summary}</p>
+            <ul className="mt-6 space-y-2">
+              {info.proof.map((p) => (
+                <li key={p} className="flex gap-3">
+                  <span aria-hidden className="mt-[0.7em] h-[3px] w-4 shrink-0 rounded-full bg-accent" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            {info.resume ? (
+              <a
+                href={info.resume.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-medium text-white transition-opacity hover:opacity-90"
               >
+                <Download size={18} aria-hidden />
+                {info.resume.label}
+              </a>
+            ) : (
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-medium text-white transition-opacity hover:opacity-90"
+              >
+                <Mail size={18} aria-hidden />
                 Get in touch
               </a>
-              <a 
-                href="#projects"
-                className="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg transition-colors"
-              >
-                View Projects
-              </a>
-            </div>
+            )}
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-rule bg-surface px-4 py-2.5 font-medium hover:border-ink"
+            >
+              <Linkedin size={18} aria-hidden />
+              LinkedIn
+            </a>
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-rule bg-surface px-4 py-2.5 font-medium hover:border-ink"
+            >
+              <Github size={18} aria-hidden />
+              GitHub
+            </a>
           </div>
-          <div className="md:w-1/2 flex justify-center">
-            <Card className="relative w-64 h-64 md:w-80 md:h-80 animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl transform rotate-6 opacity-75"></div>
-              <div className="absolute inset-0 bg-dark rounded-2xl transform -rotate-6"></div>
-              <img
-                src="../src/public/images/Hero.JPG"
-                alt="Vaibhav Itauriya"
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-darker to-transparent opacity-50 rounded-2xl"></div>
-            </Card>
+        </div>
+
+        <div className="md:col-span-5 md:pt-6">
+          <div className="relative mx-auto max-w-[22rem] md:ml-auto md:mr-0">
+            <div
+              aria-hidden
+              className="absolute inset-0 translate-x-4 translate-y-4 rounded-[1.75rem] bg-accent transition-colors duration-300"
+            />
+            <img
+              src="/vaibhav.jpg"
+              alt="Portrait of Vaibhav Itauriya"
+              width={900}
+              height={900}
+              className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
+            />
           </div>
         </div>
       </div>
