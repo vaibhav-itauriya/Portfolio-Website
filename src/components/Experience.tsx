@@ -1,7 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import { experience } from '../data/content';
 import { pickView, useLens } from '../lens';
-import { Blocks, Section } from './Section';
+import { CollapsibleBlocks, Section } from './Section';
 
 export default function Experience() {
   const { lens, info } = useLens();
@@ -12,9 +12,9 @@ export default function Experience() {
       title="Experience"
       intro={
         lens === 'all' ? (
-          <>Pick a view at the top to see each role written the way that team would read it.</>
+          <>Pick the role you are hiring for at the top to see the most relevant work from each internship.</>
         ) : (
-          <>Showing the {info.label.toLowerCase()} side of each role. Choose Everything for the short version.</>
+          <>Showing the {info.label.toLowerCase()} side of each internship.</>
         )
       }
     >
@@ -42,7 +42,7 @@ export default function Experience() {
               )}
 
               <div key={lens} className="lens-fade mt-5">
-                <Blocks blocks={pickView(job.views, lens)} />
+                <CollapsibleBlocks blocks={pickView(job.views, lens)} limit={4} />
               </div>
 
               {job.link && (

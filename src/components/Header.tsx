@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import LensSwitch, { LensSelect } from './LensSwitch';
+import { showDecks } from './CaseDecks';
+import { useLens } from '../lens';
 
-const links = [
+const allLinks = [
   { href: '#experience', text: 'Experience' },
   { href: '#projects', text: 'Projects' },
   { href: '#decks', text: 'Case decks' },
@@ -14,6 +16,8 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { lens } = useLens();
+  const links = allLinks.filter((l) => l.href !== '#decks' || showDecks(lens));
   const [pastHero, setPastHero] = useState(false);
 
   useEffect(() => {

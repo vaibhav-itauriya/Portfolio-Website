@@ -30,11 +30,10 @@ export default function Achievements() {
               <tbody>
                 {group.items.map((a) => {
                   const marked = lens !== 'all' && a.lenses.includes(lens);
-                  const dim = lens !== 'all' && !marked;
                   return (
                     <tr
                       key={a.event}
-                      className={`border-t border-rule align-baseline transition-opacity ${dim ? 'opacity-55' : ''}`}
+                      className="border-t border-rule align-baseline"
                     >
                       <th
                         scope="row"

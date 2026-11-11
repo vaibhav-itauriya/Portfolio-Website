@@ -3,7 +3,7 @@ import type { Lens } from '../data/content';
 import { accents, useLens } from '../lens';
 
 // Order shown to visitors: the four tracks first, the combined view last.
-const order: Lens[] = ['product', 'software', 'data', 'strategy', 'all'];
+const order: Lens[] = ['frontend', 'software', 'product', 'data', 'strategy', 'all'];
 
 export default function LensSwitch({ size = 'large' }: { size?: 'large' | 'compact' }) {
   const { lens, setLens } = useLens();
@@ -12,7 +12,8 @@ export default function LensSwitch({ size = 'large' }: { size?: 'large' | 'compa
   return (
     <div
       role="group"
-      aria-label="Choose which side of my work to see"
+      aria-labelledby={large ? 'hiring-for' : undefined}
+      aria-label={large ? undefined : 'Role you are hiring for'}
       className={`inline-flex flex-wrap ${large ? 'gap-2' : 'gap-1'}`}
     >
       {order.map((id) => {
@@ -45,10 +46,10 @@ export function LensSelect() {
   const { lens, setLens } = useLens();
   return (
     <label className="flex items-center gap-2 text-sm">
-      <span className="hidden text-muted sm:inline">View</span>
+      <span className="hidden text-muted sm:inline">Hiring for</span>
       <select
         value={lens}
-        aria-label="Choose which side of my work to see"
+        aria-label="Role you are hiring for"
         onChange={(e) => setLens(e.target.value as Lens)}
         className="rounded-full border border-rule bg-surface px-3 py-1 font-medium text-accent"
       >

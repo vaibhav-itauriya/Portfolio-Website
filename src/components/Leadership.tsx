@@ -1,5 +1,5 @@
 import { leadership } from '../data/content';
-import { Section } from './Section';
+import { Bullet, Emphasize, Section } from './Section';
 
 export default function Leadership() {
   const [lead, ...others] = leadership;
@@ -16,10 +16,9 @@ export default function Leadership() {
         {lead.note && <p className="mt-4 border-l-[3px] border-accent pl-4 font-medium">{lead.note}</p>}
         <ul className="mt-5 space-y-2">
           {lead.items.map((item) => (
-            <li key={item} className="relative pl-5">
-              <span aria-hidden className="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-accent/70" />
-              {item}
-            </li>
+            <Bullet key={item}>
+              <Emphasize text={item} />
+            </Bullet>
           ))}
         </ul>
       </article>

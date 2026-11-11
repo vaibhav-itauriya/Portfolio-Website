@@ -12,7 +12,9 @@ Resumes are in `public/resumes/` and the photo is `public/vaibhav.jpg`.
 
 ## Views
 
-Visitors can switch between Product, Software, Data, Strategy and Everything. Each view can be shared as a link, for example `/?lens=product`.
+Visitors pick the role they are hiring for: Frontend, Software, Product, Data, Strategy or Everything. Each view can be shared as a link, for example `/?lens=frontend`.
+
+Project screenshots are in `public/projects/`. Fonts are self-hosted in `public/fonts/`.
 
 ## Run locally
 
